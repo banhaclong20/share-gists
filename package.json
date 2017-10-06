@@ -1,0 +1,16 @@
+{
+  "name": "sharegits",
+  "version": "1.0.0",
+  "description": "Share your Gits - Code Snippet",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Tom Tran",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.1",
+    "mongoose": "^4.12.0",
+    "nodemon": "^1.12.1"
+  }
+}
