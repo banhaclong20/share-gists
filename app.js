@@ -11,7 +11,7 @@ const auth = require('./routes/auth');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send('Worked');
+    res.send('test for Homepage');
 })
 
 // Use Routes
