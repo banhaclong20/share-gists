@@ -1,0 +1,155 @@
+*, 
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+.hero {
+    font-family: 'Open Sans', sans-serif;
+    background: #eeeeee;
+}
+
+@media (min-width: 25rem) {
+    .hero {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+    }
+}
+
+@media (min-width: 25rem) {
+    .hero__background-container {
+        width: 50vw;
+        background-image: url(../img/opensourcefriday.svg);
+        background-repeat: no-repeat;
+        background-position-y: center;
+    }
+}
+
+.hero__content {
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1;
+    padding: 1rem;
+    z-index: 2;
+}
+
+@media (min-width: 25rem) {
+    .hero__content {
+        text-align: left;
+    }
+}
+
+@media (min-width: 48rem) {
+    .hero__content {
+        margin: 10vh 2vw;
+    }
+}
+
+.hero__header {
+    font-weight: 100;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    color: #47525d;
+    margin-bottom: 1rem;
+    padding-bottom: 0;
+}
+
+@media (min-width: 48rem) {
+    .hero__header {
+        font-size: 2rem;
+        letter-spacing: -2px;
+    }
+}
+
+.hero__subheader {
+    font-weight: 100;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #47525d;
+    margin-bottom: 3.7rem;
+}
+
+@media (min-width: 48rem) {
+    .hero__subheader {
+        font-size: 1.1rem;
+        letter-spacing: -1px;
+    }
+}
+  
+/* General Style */
+
+.share-gist-logo {
+    width: 50%;
+}
+
+.navbar {
+    background-color: #24292e;
+}
+
+.navbar a {
+    color: #FFF;
+}
+
+.align-icon {
+    margin-left: 5px;
+    vertical-align: middle;
+    font-size: 1.2rem;
+}
+
+.navbar-toggler {
+    outline: none !important;
+    border: 0;
+}
+
+.search-gist {
+    background: #eaeaea;
+    border: 0;
+}
+
+.btn-login {
+    min-width: 120px;
+    background: #607D8B;
+    color: #FFF !important;
+    font-size: 90%;
+    margin-left: 1rem;
+    transition: all .3s ease-in-out;
+}
+
+.btn-login:hover {
+    background: #007bff;
+}
+
+.btn-outline-secondary {
+    color: #d6d6d6;
+}
+
+footer {
+    background: #dadada;
+}
+
+.bd-footer-links {
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.bd-footer-links li {
+    display: inline-block;
+}
+
+.bd-footer-links li+li {
+    margin-left: 1rem;
+}
+
+.bd-footer a {
+    font-weight: 500;
+    color: #495057;
+}
