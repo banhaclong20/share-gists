@@ -1,0 +1,33 @@
+<div class="container">
+    {{#each gists}}
+        <div class="row mt-4 mb-4">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{description}}</h4>
+                        <p class="card-text">{{truncate contents 250}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <img class="rounded-circle float-left user-image" src="{{user.image}}" alt="" />
+                                <h6 class="text-info" style="margin-left: 1em"><a href="/gists/user/{{user.id}}">{{user.firstName}} {{user.lastName}}</a></h6>
+                                <p class="text-muted small" style="margin-bottom: 0;">Created 16 days ago</p>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div class="float-right">
+                                    {{#if user}}
+                                        {{{editIcon user.id ../user.id id}}}
+                                    {{/if}}
+                                    <a href="/gists/show/{{id}}" class="btn btn-dark">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        <p>No Gist</p>
+    {{/each}}
+</div>

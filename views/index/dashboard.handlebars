@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <h4>Welcome {{user.firstName}}!</h4>
+
+    {{#if gists}}
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th class="text-center">Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each gists}}
+                <tr>
+                    <td><a href="/gists/show/{{id}}">{{description}}</a></td>
+                    <td>{{formatDate date 'MMMM do YYYY'}}</td>
+                    <td><span class="status-gist">{{status}}</span></td>
+                    <td class="text-center">
+                        <a class="btn btn-outline-primary" href="/gists/edit/{{id}}"><i class="ion-android-create"></i></a>
+                        <form action="/gists/{{id}}?_method=DELETE" method="post" id="delete-gist">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-outline-danger"><i class=
+                            "ion-android-delete"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>You have nothing at this time, let's create one</p>
+    {{/if}}
+</div>
+
+
+

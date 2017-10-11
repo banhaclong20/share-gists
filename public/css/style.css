@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 .hero {
     font-family: 'Open Sans', sans-serif;
     background: #eeeeee;
@@ -87,6 +97,17 @@
   
 /* General Style */
 
+.h4, h4 {
+    font-size: 1.4rem;
+    color: #343a40;
+    margin: 0;
+}
+
+.ion-code:before {
+    content: "\f271";
+    font-size: 2rem;
+}
+
 .share-gist-logo {
     width: 50%;
 }
@@ -130,6 +151,36 @@
 
 .btn-outline-secondary {
     color: #d6d6d6;
+}
+
+.user-image {
+    width: 40px;
+    margin-right: 1rem;
+}
+
+.status-gist {
+    text-transform: capitalize;
+}
+
+#delete-gist {
+    display: inline-block;
+}
+
+.comment-body {
+    background: #fdfdfd;
+    padding: 0.7em 1em 0;
+    border-radius: 5px;
+    border: 1px solid #DDD;
+    width: 100%;
+    margin: 1em;
+}
+
+.card-no-border {
+    border-bottom: 0 !important;
+}
+
+.comment-body p {
+    font-size: 0.9rem;
 }
 
 footer {

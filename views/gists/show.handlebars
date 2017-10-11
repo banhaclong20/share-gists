@@ -1,0 +1,56 @@
+<div class="container mt-4">
+    <img class="rounded float-left user-image" src="{{gist.user.image}}" alt="" />
+    <h6 class="text-info" style="margin-left: 1em"><a href="/gists/user/{{gist.user.id}}">{{gist.user.firstName}} {{gist.user.lastName}}</a> / <a href="/gists/show/{{gist.id}}" class="font-weight-bold">{{gist.description}}</a></h6>
+    <p class="text-muted small" style="margin-bottom: 0;">Created in {{formatDate gist.date 'MMMM Do YYYY'}}</p>
+    
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4><i class="ion-code-working text-muted mr-2"></i>{{gist.description}}
+            {{{editIcon gist.user.id user.id gist.id false}}}
+            </h4>
+        </div>
+        <div class="card-body">
+            {{{gist.contents}}}
+        </div>    
+    </div>
+
+    <div class="my-4"></div>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Comment</h5>
+                {{#each gist.comments}}
+                    <div class="card-header mb-3 card-no-border">
+                        <div class="row">
+                            <div class="float-left ml-3">
+                                <img class="rounded-circle float-left user-image" src="{{commentUser.image}}" alt="" />
+                            </div> 
+                            <div class="float-left"> 
+                                <h6 class="small text-muted" style="padding-top: 1em;"><strong><a class="text-dark" href="/gists/user/{{commentUser.id}}">{{commentUser.firstName}} {{commentUser.lastName}}</a></strong> commented on {{formatDate commentDate 'MMMM do YYYY'}}</h6>
+                            </div>
+                            <div class="comment-body">
+                                <p>{{commentBody}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}    
+                {{/each}}
+            <div class="my-4"></div>
+            {{#if user}}
+                <form action="/gists/comment/{{gist.id}}" method="post">
+                    <div class="form-group">
+                        <label>Add Comment</label>
+                        <textarea class="form-control" name="commentBody" rows="4"></textarea>
+                    </div>
+                    <input type="submit" value="Comment" class="btn btn-outline-primary">
+                </form>
+
+            {{else}}
+               Already have an account? <a href="/auth/google">Sign in</a> to comment.
+            {{/if}}
+        </div>
+    </div>
+
+</div>
+<div class="mt-4"></div>
+
