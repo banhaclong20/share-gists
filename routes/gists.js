@@ -25,9 +25,23 @@ router.get('/show/:id', (req, res) => {
     .populate('user')
     .populate('comments.commentUser')
     .then(gist => {
-        res.render('gists/show', {
-            gist: gist
-        });
+        if (gist.status == 'public') {
+            res.render('gists/show', {
+                gist: gist
+            });
+        } else {
+            if (req.user) {
+                if(req.user.id == gist.user._id) {
+                    res.render('gists/show', {
+                        gist: gist
+                    });
+                } else {
+                    res.redirect('/gists');
+                }
+            } else {
+                res.redirect('/gists');
+            }
+        }
     });
 });
 
