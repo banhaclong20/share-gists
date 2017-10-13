@@ -8,7 +8,7 @@ router.get('/google', passport.authenticate('google', {scope: ['profile','email'
 // Use Authenticate Request callback
 router.get('/google/callback', 
     passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
-    res.redirect('/dashboard');
+        res.redirect('/dashboard');
 });
 
 router.get('/verify', (req, res) => {
