@@ -36,10 +36,10 @@ module.exports = function(passport) {
                 } else {
                     // Create User
                     new User(newUser)
-                        .save()
-                        .then(user => {
-                            done(null, user)
-                        })
+                    .save()
+                    .then(user => {
+                        done(null, user)
+                    })
                 }
             })
         })

@@ -4,7 +4,8 @@
   "description": "Share your Gist - Code Snippets",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "prestart": "next build",
+    "start": "next start -p ${PORT}"
   },
   "author": "Tom Tran",
   "license": "MIT",
