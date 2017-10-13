@@ -14,7 +14,7 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
         res.render('index/dashboard', {
             gists: gists
         });
-    })
-})
+    });
+});
 
 module.exports = router;

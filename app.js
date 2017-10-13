@@ -57,9 +57,6 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-// Static folder
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Use Session and Cookie Parser
 app.use(cookieParser());
 app.use(session({
@@ -77,6 +74,9 @@ app.use((req, res, next) => {
     res.locals.user = req.user || null;
     next();
 });
+
+// Static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Use Routes
 app.use('/', index);

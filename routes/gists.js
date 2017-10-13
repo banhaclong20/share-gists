@@ -8,8 +8,8 @@ const { ensureAuthenticated, ensureGuest } = require('../helpers/auth');
 // Gists index
 router.get('/', (req, res) => {
     Gist.find({status: 'public'})
-        .sort({date: 'desc'})
         .populate('user')
+        .sort({date: 'desc'})
         .then(gists => {
             res.render('gists/index', {
                 gists: gists
@@ -52,8 +52,19 @@ router.get('/user/:userId', (req, res) => {
     .then(gists => {
         res.render('gists/index', {
             gists: gists
-        })
-    })
+        });
+    });
+});
+
+// Logged in users stories
+router.get('/my', ensureAuthenticated, (req, res) => {
+    Story.find({user: req.user.id})
+        .populate('user')
+        .then(gists => {
+        res.render('gists/index', {
+            gists: gists
+        });
+    });
 });
 
 // Add Gist Form
@@ -92,7 +103,7 @@ router.post('/', (req, res) => {
     .then(gist => {
         res.redirect(`/gists/show/${gist.id}`);
     }); 
-})
+});
 
 // Edit Gist Process
 router.put('/:id', (req, res) => {
@@ -107,7 +118,7 @@ router.put('/:id', (req, res) => {
 
         gist.save()
         .then(gist => {
-            res.redirect('/dashboard');
+            res.redirect(`/gists/show/${gist.id}`);
         });
     });
 })
