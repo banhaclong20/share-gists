@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
         .sort({date: 'desc'})
         .then(gists => {
             res.render('gists/index', {
+                publicGists: 'Discover gists',
                 gists: gists
             });
         });
@@ -49,19 +50,10 @@ router.get('/show/:id', (req, res) => {
 router.get('/user/:userId', (req, res) => {
     Gist.find({user: req.params.userId, status: 'public'})
     .populate('user')
+    .sort({date: 'desc'})
     .then(gists => {
         res.render('gists/index', {
-            gists: gists
-        });
-    });
-});
-
-// Logged in users stories
-router.get('/my', ensureAuthenticated, (req, res) => {
-    Story.find({user: req.user.id})
-        .populate('user')
-        .then(gists => {
-        res.render('gists/index', {
+            userNameGist: "Gists of ",
             gists: gists
         });
     });
